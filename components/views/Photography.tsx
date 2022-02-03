@@ -4,8 +4,6 @@ import { client } from '../../graphql/apollo-client'
 import { GET_PHOTOGRAPHY_PHOTOS } from '../../graphql/queries/photography'
 import { PhotographyPhotoType } from '../../interfaces/schemas'
 
-import SectionContainer from '../base/SectionContainer'
-
 const Photography = () => {
   const [photos, setPhotos] = useState<PhotographyPhotoType[] | null>(null)
 

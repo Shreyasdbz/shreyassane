@@ -3,6 +3,8 @@ import { gql } from '@apollo/client'
 export const GET_EXPERIENCE = gql`
   query {
     allExperience {
+      _id
+      _createdAt
       company
       position
       dateFrom

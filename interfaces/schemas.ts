@@ -25,6 +25,7 @@ export type TechnologyType = {
 
 export type ExperienceType = {
   _id: string
+  _createdAt: string
   company: string
   position: string
   dateFrom: string

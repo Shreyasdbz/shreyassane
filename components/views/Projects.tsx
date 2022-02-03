@@ -1,6 +1,7 @@
 import { useContext } from 'react'
 // import { PortableText } from '@portabletext/react'
 import { SanityContext } from '../../graphql/SanityContext'
+import SectionHeader from '../base/SectionHeader'
 
 const Projects = () => {
   const projects = useContext(SanityContext).projects
@@ -14,9 +15,9 @@ const Projects = () => {
       style={{ backgroundImage: 'url(/svgBackgrounds/topWave2.svg)' }}
     >
       <main>
-        <div>
-          <h1>Projects!!</h1>
-        </div>
+        <SectionHeader>
+          <span className="text-slate-900 dark:text-slate-100">Projects</span>
+        </SectionHeader>
       </main>
     </section>
   )

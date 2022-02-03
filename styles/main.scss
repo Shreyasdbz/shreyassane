@@ -9,14 +9,18 @@
 }
 
 section {
-  @apply flex h-screen w-screen items-center justify-center overflow-hidden bg-cover;
+  @apply flex min-h-screen w-screen items-center justify-center bg-cover;
 }
 main {
-  @apply flex h-screen w-full max-w-6xl flex-col items-center justify-start gap-4 overflow-y-scroll px-4 pt-10 md:justify-center;
+  @apply my-10 flex min-h-screen w-full max-w-6xl flex-col items-center justify-start gap-4 bg-cover px-4 md:justify-center md:gap-6 md:px-10;
+}
+
+.vertical-divider {
+  @apply h-16 w-0.5 rounded-full bg-slate-800/25;
 }
 
 .hover-bounce {
-  @apply hover:-translate-y-1 hover:opacity-80;
+  @apply md:hover:-translate-y-0.5 md:hover:cursor-pointer;
 }
 
 .main-hero {
