@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  transition: 0.3s;
+}
+
+section {
+  @apply flex h-screen w-screen items-center justify-center overflow-hidden bg-cover;
+}
+main {
+  @apply flex h-screen w-full max-w-6xl flex-col items-center justify-start gap-4 overflow-y-scroll px-4 pt-10 md:justify-center;
+}
+
+.hover-bounce {
+  @apply hover:-translate-y-1 hover:opacity-80;
+}
+
+.main-hero {
+  @apply md:flex-row;
+
+  .action-link-btn {
+    @apply rounded-2xl border-2 px-4 py-1 font-semibold text-slate-100 hover:cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-800;
+  }
+}

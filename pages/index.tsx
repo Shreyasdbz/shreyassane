@@ -11,7 +11,7 @@ import Projects from '../components/views/Projects'
 
 export default function Home() {
   return (
-    <div className="page-container">
+    <div className="page-container bg-slate-100 dark:bg-slate-800">
       <Hero />
       <About />
       <Projects />

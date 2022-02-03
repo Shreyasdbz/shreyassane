@@ -1,33 +1,19 @@
-import { useEffect, useState } from 'react'
-import { client } from '../../graphql/apollo-client'
-
-import { GET_BIO } from '../../graphql/queries/siteText'
-import { SiteText } from '../../interfaces/schemas'
-
-import SectionContainer from '../base/SectionContainer'
+import { PortableText } from '@portabletext/react'
+import { useContext } from 'react'
+import { SanityContext } from '../../graphql/SanityContext'
 
 const About = () => {
-  const [bio, setBio] = useState<SiteText | null>(null)
+  const bio = useContext(SanityContext).bio
+  const experience = useContext(SanityContext).experience
 
-  const getData = async () => {
-    const data_bio = await client.query({
-      query: GET_BIO,
-    })
-    setBio(data_bio.data.allSiteText[0])
-  }
-
-  useEffect(() => {
-    getData()
-  })
-
-  if (bio === null) return <h1>Ran into an error :(</h1>
+  if (bio === null || experience === null) return <h1>Ran into an error :(</h1>
 
   return (
-    <SectionContainer>
-      <div>
-        <p>About!</p>
-      </div>
-    </SectionContainer>
+    <section id="section-about" style={{ backgroundImage: 'url(/svgBackgrounds/bottomWave1.svg)' }}>
+      <main>
+        <PortableText value={bio.textContentRaw} />
+      </main>
+    </section>
   )
 }
 

@@ -1,15 +1,15 @@
 import { gql } from '@apollo/client'
 
-export const GET_PROJECTS = gql`
+export const GET_EXPERIENCE = gql`
   query {
-    allProject {
-      _id
-      title
-      caption
-      link
+    allExperience {
+      company
+      position
+      dateFrom
+      dateTill
+      location
       descRaw
-      images {
-        _key
+      logo {
         asset {
           url
         }
