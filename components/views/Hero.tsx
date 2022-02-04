@@ -16,10 +16,10 @@ const Hero = () => {
           <img
             src={profilePicture.imageContent.asset.url}
             alt={profilePicture.imageName}
-            className="h-56 w-56 rounded-full object-cover shadow-xl md:h-72 md:w-72"
+            className="h-56 w-56 rounded-full object-cover shadow-xl md:h-72 md:w-72 xl:h-104 xl:w-104"
           />
         </div>
-        <div className="actions flex max-w-lg flex-col gap-2 dark:text-slate-100">
+        <div className="actions mt-10 flex max-w-lg flex-col gap-2 dark:text-slate-100 md:gap-5">
           <p className="text-4xl font-semibold">Hi there!</p>
           <p className="text-6xl font-extrabold">I'm Shreyas</p>
           <p className="text-2xl font-light leading-loose">
@@ -27,17 +27,20 @@ const Hero = () => {
             <Link
               to="section-projects"
               smooth={true}
-              className="action-link-btn whitespace-nowrap border-primary-500 bg-primary-500 shadow-lg shadow-primary-500/25 hover:text-primary-500"
+              className="action-link-btn whitespace-nowrap border-primary-500 bg-primary-500 shadow-lg shadow-primary-500/25 hover:text-primary-500 hover:shadow-none"
             >
-              CODE 🖥
+              <span className="text-shadow">CODE 🖥</span>
             </Link>{' '}
-            applications and{' '}
+            applications
+          </p>
+          <p className="text-2xl font-light leading-loose">
+            and{' '}
             <Link
               to="section-photography"
               smooth={true}
-              className="action-link-btn whitespace-nowrap border-secondary-500 bg-secondary-500 shadow-lg shadow-secondary-500/25 hover:text-secondary-500"
+              className="action-link-btn whitespace-nowrap border-secondary-500 bg-secondary-500 shadow-lg shadow-secondary-500/25 hover:text-secondary-500 hover:shadow-none"
             >
-              CAPTURE 📸
+              <span className="text-shadow">CAPTURE 📸</span>
             </Link>{' '}
             adventures
           </p>

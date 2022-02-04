@@ -42,18 +42,18 @@ const About = () => {
         <SectionCaption>
           <span>My Experience</span>
         </SectionCaption>
-        <div className="experiences flex w-full flex-col items-center justify-center gap-3 md:gap-5">
+        <div className="experiences flex w-full flex-row flex-wrap items-center justify-center gap-3 lg:justify-start lg:gap-5">
           {experience.map((e) => {
             return (
               <div
                 key={e._id}
-                className="experience-card hover-bounce flex w-full flex-row items-center justify-start gap-2 rounded-2xl bg-slate-200 px-2 py-2 shadow-xl dark:bg-slate-600  dark:text-slate-100 md:gap-4 "
+                className="experience-card hover-bounce flex w-full flex-row items-center justify-start gap-2 rounded-2xl bg-slate-200 px-4 py-2 shadow-xl dark:bg-slate-600 dark:text-slate-100 md:gap-4 md:px-6 lg:w-fit  lg:flex-row "
               >
                 <div className="left">
                   <img
                     src={e.logo.asset.url}
                     alt={`e.company logo`}
-                    className="m-2 h-12 w-12 rounded-full bg-slate-100 object-cover shadow-xl md:h-16 md:w-16"
+                    className=" h-12 w-12 rounded-full bg-slate-100 object-cover shadow-xl md:h-16 md:w-16"
                   />
                 </div>
                 <div className="vertical-divider"></div>
@@ -61,8 +61,11 @@ const About = () => {
                   <p className="float-left text-xl font-semibold">{e.company}</p>
                   <p className="float-left text-lg font-semibold text-slate-600 dark:text-slate-400">{e.position}</p>
                   <p className="float-left font-bold text-slate-800 dark:text-slate-200">📍 {e.location}</p>
+                  <p className="float-left font-light text-slate-700 dark:text-slate-300">
+                    {e.dateFrom} - {e.dateTill}
+                  </p>
                 </div>
-                <div className="technologies hidden max-w-sm flex-wrap gap-2 md:flex">
+                <div className="technologies hidden max-w-sm flex-wrap gap-2">
                   {e.technologies.map((t) => {
                     return (
                       <img key={t._id} src={t.icon.asset.url} alt={t.name} className="h-10 w-10 rounded-xl px-2 py-2" />
@@ -72,6 +75,17 @@ const About = () => {
               </div>
             )
           })}
+        </div>{' '}
+        <SectionCaption>
+          <span>My Skills</span>
+        </SectionCaption>
+        <div className="flex w-full flex-col items-start justify-center gap-4">
+          <div>
+            <p>Languages:</p>
+          </div>
+          <div>
+            <p>Technologies:</p>
+          </div>
         </div>
       </main>
     </section>

@@ -10,7 +10,12 @@ module.exports = {
       tertiary: colors.rose,
       slate: colors.slate,
     },
-    extend: {},
+    extend: {
+      spacing: {
+        104: '28rem',
+        128: '32rem',
+      },
+    },
   },
   plugins: [],
 }

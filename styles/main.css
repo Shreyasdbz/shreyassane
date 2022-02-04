@@ -24,8 +24,12 @@ main {
   @apply md:hover:-translate-y-0.5 md:hover:cursor-pointer;
 }
 
+.text-shadow {
+  text-shadow: 2px 2px 10px #00000025;
+}
+
 .main-hero {
-  @apply md:flex-row;
+  @apply md:flex-row lg:gap-14;
 }
 
 .main-hero .action-link-btn {
