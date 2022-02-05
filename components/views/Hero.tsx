@@ -29,7 +29,9 @@ const Hero = () => {
               smooth={true}
               className="action-link-btn whitespace-nowrap border-primary-500 bg-primary-500 shadow-lg shadow-primary-500/25 hover:text-primary-500 hover:shadow-none"
             >
-              <span className="text-shadow">CODE 🖥</span>
+              <span className="text-shadow">
+                CODE <span className="emoji">🖥</span>
+              </span>
             </Link>{' '}
             applications
           </p>
@@ -40,12 +42,14 @@ const Hero = () => {
               smooth={true}
               className="action-link-btn whitespace-nowrap border-secondary-500 bg-secondary-500 shadow-lg shadow-secondary-500/25 hover:text-secondary-500 hover:shadow-none"
             >
-              <span className="text-shadow">CAPTURE 📸</span>
+              <span className="text-shadow">
+                CAPTURE <span className="emoji">📸</span>
+              </span>
             </Link>{' '}
             adventures
           </p>
           <div className="mt-10 flex w-full items-center justify-center">
-            <Link to="section-about" smooth={true} className="hover-bounce cursor-pointer">
+            <Link to="section-about" smooth={true} className="hover-bounce cursor-pointer hover:animate-bounce">
               <HiArrowCircleDown className="text-4xl text-tertiary-500" />
             </Link>
           </div>

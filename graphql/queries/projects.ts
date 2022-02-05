@@ -4,6 +4,7 @@ export const GET_PROJECTS = gql`
   query {
     allProject {
       _id
+      _createdAt
       title
       caption
       link

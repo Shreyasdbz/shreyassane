@@ -13,7 +13,7 @@ section {
 }
 
 main {
-  @apply my-10 flex min-h-screen w-full max-w-6xl flex-col items-center justify-start gap-4 bg-cover px-4 md:justify-center md:gap-6 md:px-10;
+  @apply my-10 flex min-h-screen w-full max-w-6xl flex-col items-center justify-start gap-4 bg-cover px-4 md:gap-6 md:px-10;
 }
 
 .vertical-divider {
@@ -51,5 +51,10 @@ main {
 
 .main-hero .action-link-btn {
   @apply rounded-2xl border-2 px-4 py-1 font-semibold text-slate-100 hover:cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-800;
+}
+
+.main-about .experience-card:hover img {
+  -webkit-transform: rotate(5deg);
+          transform: rotate(5deg);
 }
 /*# sourceMappingURL=main.css.map */

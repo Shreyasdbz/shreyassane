@@ -34,7 +34,7 @@ const About = () => {
 
   return (
     <section id="section-about" style={{ backgroundImage: 'url(/svgBackgrounds/bottomWave1.svg)' }}>
-      <main style={{ backgroundImage: 'url(/svgBackgrounds/randomDots.svg)' }}>
+      <main className="main-about" style={{ backgroundImage: 'url(/svgBackgrounds/randomDots.svg)' }}>
         <SectionHeader>
           <span className="text-secondary-500">About</span>
         </SectionHeader>
@@ -58,7 +58,7 @@ const About = () => {
                   <img
                     src={e.logo.asset.url}
                     alt={`e.company logo`}
-                    className=" h-12 w-12 rounded-full bg-slate-100 object-cover shadow-xl md:h-16 md:w-16"
+                    className="company-logo h-12 w-12 rounded-full bg-slate-100 object-cover shadow-xl md:h-16 md:w-16"
                   />
                 </div>
                 <div className="vertical-divider"></div>

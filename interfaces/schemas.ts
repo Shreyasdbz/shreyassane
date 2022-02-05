@@ -37,6 +37,7 @@ export type ExperienceType = {
 
 export type ProjectType = {
   _id: string
+  _createdAt: string
   title: string
   caption: string
   link: string
