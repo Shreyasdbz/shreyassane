@@ -28,6 +28,23 @@ main {
   text-shadow: 2px 2px 10px #00000025;
 }
 
+.blur-layer {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  z-index: 2;
+}
+
+.modal-content {
+  @apply flex w-full max-w-xl flex-col items-center justify-center gap-4 rounded-2xl bg-primary-200 px-6 py-10 shadow-xl dark:bg-primary-900 dark:text-slate-100;
+}
+
+.modal-content .main-content {
+  @apply flex flex-col items-center justify-center gap-4;
+}
+
 .main-hero {
   @apply md:flex-row lg:gap-14;
 }

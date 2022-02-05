@@ -10,7 +10,9 @@ import SectionCaption from '../base/SectionCaption'
 
 const About = () => {
   const bio = useContext(SanityContext).bio
-  let experience_context = useContext(SanityContext).experience
+  const experience_context = useContext(SanityContext).experience
+  const skills = useContext(SanityContext).skills
+  const handleExperience = useContext(SanityContext).handleExperience
 
   let experience: ExperienceType[] = []
   if (experience_context) {
@@ -28,7 +30,7 @@ const About = () => {
   }
   experience?.sort(compareCreatedAt)
 
-  if (bio === null || experience === null) return <ErrorSection />
+  if (bio === null || experience === null || skills === null) return <ErrorSection />
 
   return (
     <section id="section-about" style={{ backgroundImage: 'url(/svgBackgrounds/bottomWave1.svg)' }}>
@@ -48,6 +50,9 @@ const About = () => {
               <div
                 key={e._id}
                 className="experience-card hover-bounce flex w-full flex-row items-center justify-start gap-2 rounded-2xl bg-slate-200 px-4 py-2 shadow-xl dark:bg-slate-600 dark:text-slate-100 md:gap-4 md:px-6 lg:w-fit  lg:flex-row "
+                onClick={() => {
+                  handleExperience({ action: 'OPEN', exp: e })
+                }}
               >
                 <div className="left">
                   <img
@@ -68,7 +73,13 @@ const About = () => {
                 <div className="technologies hidden max-w-sm flex-wrap gap-2">
                   {e.technologies.map((t) => {
                     return (
-                      <img key={t._id} src={t.icon.asset.url} alt={t.name} className="h-10 w-10 rounded-xl px-2 py-2" />
+                      <img
+                        key={t._id}
+                        src={t.icon.asset.url}
+                        alt={t.name}
+                        title={t.name}
+                        className="h-10 w-10 rounded-xl px-2 py-2"
+                      />
                     )
                   })}
                 </div>
@@ -77,15 +88,21 @@ const About = () => {
           })}
         </div>{' '}
         <SectionCaption>
-          <span>My Skills</span>
+          <span>My Core Skills</span>
         </SectionCaption>
-        <div className="flex w-full flex-col items-start justify-center gap-4">
-          <div>
-            <p>Languages:</p>
-          </div>
-          <div>
-            <p>Technologies:</p>
-          </div>
+        <div className="flex w-full flex-row flex-wrap items-center justify-start gap-2">
+          {skills.map((s) => {
+            return (
+              <div key={s._id}>
+                <img
+                  src={s.icon.asset.url}
+                  title={s.name}
+                  alt={s.name}
+                  className="h-12 w-12 rounded-xl bg-slate-200 p-2 shadow-lg md:hover:-translate-y-0.5"
+                />
+              </div>
+            )
+          })}
         </div>
       </main>
     </section>

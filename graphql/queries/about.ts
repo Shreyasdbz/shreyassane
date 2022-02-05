@@ -29,3 +29,18 @@ export const GET_EXPERIENCE = gql`
     }
   }
 `
+
+export const GET_SKILLS = gql`
+  query {
+    allTechnology(where: { displaySkill: { eq: true } }) {
+      _id
+      name
+      icon {
+        _key
+        asset {
+          url
+        }
+      }
+    }
+  }
+`

@@ -1,5 +1,4 @@
 type SanityImageType = {
-  _key: string
   asset: {
     url: string
   }
