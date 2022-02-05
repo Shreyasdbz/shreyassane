@@ -36,7 +36,7 @@ const About = () => {
     <section id="section-about" style={{ backgroundImage: 'url(/svgBackgrounds/bottomWave1.svg)' }}>
       <main className="main-about" style={{ backgroundImage: 'url(/svgBackgrounds/randomDots.svg)' }}>
         <SectionHeader>
-          <span className="text-secondary-500">About</span>
+          <span className="text-shadow text-secondary-500">About</span>
         </SectionHeader>
         <div className="flex w-full flex-col items-start justify-center gap-2 text-lg font-semibold text-slate-800 dark:text-slate-100">
           <PortableText value={bio.textContentRaw} />
@@ -69,19 +69,6 @@ const About = () => {
                   <p className="float-left font-light text-slate-700 dark:text-slate-300">
                     {e.dateFrom} - {e.dateTill}
                   </p>
-                </div>
-                <div className="technologies hidden max-w-sm flex-wrap gap-2">
-                  {e.technologies.map((t) => {
-                    return (
-                      <img
-                        key={t._id}
-                        src={t.icon.asset.url}
-                        alt={t.name}
-                        title={t.name}
-                        className="h-10 w-10 rounded-xl px-2 py-2"
-                      />
-                    )
-                  })}
                 </div>
               </div>
             )

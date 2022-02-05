@@ -9,6 +9,7 @@ import SectionHeader from '../base/SectionHeader'
 
 const Projects = () => {
   const projects_context = useContext(SanityContext).projects
+  const handleProject = useContext(SanityContext).handleProject
 
   let projects: ProjectType[] = []
   if (projects_context) {
@@ -35,7 +36,7 @@ const Projects = () => {
     >
       <main>
         <SectionHeader>
-          <span className="text-slate-100">Projects</span>
+          <span className="text-shadow text-slate-100">Projects</span>
         </SectionHeader>
         <div className="flex w-full flex-row flex-wrap items-center justify-center gap-3 lg:justify-start lg:gap-5">
           {projects.map((p) => {
@@ -43,10 +44,13 @@ const Projects = () => {
               <div
                 key={p._id}
                 className="hover-bounce flex w-full flex-col items-center justify-center gap-2 rounded-2xl bg-slate-200 px-4 py-2 shadow-xl dark:bg-slate-600 dark:text-slate-100 md:gap-4 md:px-6 lg:w-fit"
+                onClick={() => {
+                  handleProject({ action: 'OPEN', proj: p })
+                }}
               >
-                <p>{p.title}</p>
-                <p>{p.caption}</p>
-                <div className="technologies hidden max-w-sm flex-wrap gap-2">
+                <p className="text-xl font-semibold">{p.title}</p>
+                <p className="text-lg font-semibold italic text-slate-600 dark:text-slate-400">{p.caption}</p>
+                <div className="flex flex-wrap gap-2">
                   {p.technologies.map((t) => {
                     return (
                       <img

@@ -35,11 +35,12 @@ const ModalExperience = () => {
                 src={t.icon.asset.url}
                 alt={t.name}
                 title={t.name}
-                className="h-12 w-12 rounded-xl bg-slate-100 p-2 shadow-md"
+                className="h-12 w-12 rounded-full bg-slate-100 p-2 shadow-md"
               />
             )
           })}
         </div>
+        <hr className="w-full max-w-lg  rounded-full border-slate-400" />
         <div className="flex w-full flex-col items-start justify-center gap-2 text-lg text-slate-800 dark:text-slate-100">
           <PortableText value={activeExperience.descRaw} />
         </div>
