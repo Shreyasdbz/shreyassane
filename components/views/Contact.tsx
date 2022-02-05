@@ -1,3 +1,6 @@
+import SectionHeader from '../base/SectionHeader'
+import SectionCaption from '../base/SectionCaption'
+
 const Contact = () => {
   return (
     <section
@@ -6,7 +9,12 @@ const Contact = () => {
       style={{ backgroundImage: 'url(/svgBackgrounds/topWave3.svg)' }}
     >
       <main>
-        <h1>Contact!</h1>
+        <SectionHeader>
+          <span className="text-shadow text-slate-100">About</span>
+        </SectionHeader>
+        <SectionCaption>
+          <span className="font-semibold">And lastly, I can be reached out to on all these platforms :)</span>
+        </SectionCaption>
       </main>
     </section>
   )

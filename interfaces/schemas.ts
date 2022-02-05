@@ -51,3 +51,10 @@ export type PhotographyPhotoType = {
   title: string
   photo: SanityImageType
 }
+
+export type ContactType = {
+  _id: string
+  siteName: string
+  link: string
+  icon: SanityImageType
+}
