@@ -7,6 +7,7 @@ import {
   TechnologyType,
   ProjectType,
   PhotographyPhotoType,
+  ContactType,
 } from '../interfaces/schemas'
 import { ModalExperienceType, ModalProjectType } from '../interfaces/modal'
 import { client } from './apollo-client'
@@ -15,6 +16,7 @@ import { GET_BIO } from './queries/siteText'
 import { GET_EXPERIENCE, GET_SKILLS } from './queries/about'
 import { GET_PROJECTS } from './queries/projects'
 import { GET_PHOTOGRAPHY_PHOTOS } from './queries/photography'
+import { GET_CONTACT } from './queries/contact'
 
 type ShortsContextType = {
   profilePicture: SiteImageType | null
@@ -23,6 +25,7 @@ type ShortsContextType = {
   skills: TechnologyType[] | null
   projects: ProjectType[] | null
   photographyPhotos: PhotographyPhotoType[] | null
+  contact: ContactType[] | null
   modalActive: boolean
   activeExperience: ExperienceType | null
   activeProject: ProjectType | null
@@ -43,6 +46,7 @@ export const SanityContextProvider = ({ children }: SanityContextProviderProps) 
   const [skills, setSkills] = useState<TechnologyType[] | null>(null)
   const [projects, setProjects] = useState<ProjectType[] | null>(null)
   const [photographyPhotos, setPhotographyPhotos] = useState<PhotographyPhotoType[] | null>(null)
+  const [contact, setContact] = useState<ContactType[] | null>(null)
 
   // Modal data
   const [modalActive, setModalActive] = useState<boolean>(false)
@@ -53,28 +57,37 @@ export const SanityContextProvider = ({ children }: SanityContextProviderProps) 
     const _profilePicture = await client.query({
       query: GET_PROFILE_PICTURE,
     })
+    setProfilePicture(_profilePicture.data.allSiteImage[0])
+
     const _bio = await client.query({
       query: GET_BIO,
     })
+    setBio(_bio.data.allSiteText[0])
+
     const _experience = await client.query({
       query: GET_EXPERIENCE,
     })
+    setExperience(_experience.data.allExperience)
+
     const _skills = await client.query({
       query: GET_SKILLS,
     })
+    setSkills(_skills.data.allTechnology)
+
     const _projects = await client.query({
       query: GET_PROJECTS,
     })
+    setProjects(_projects.data.allProject)
+
     const _photographyPhotos = await client.query({
       query: GET_PHOTOGRAPHY_PHOTOS,
     })
-
-    setBio(_bio.data.allSiteText[0])
-    setExperience(_experience.data.allExperience)
-    setSkills(_skills.data.allTechnology)
-    setProfilePicture(_profilePicture.data.allSiteImage[0])
-    setProjects(_projects.data.allProject)
     setPhotographyPhotos(_photographyPhotos.data.allPhotographyPhoto)
+
+    const _contact = await client.query({
+      query: GET_CONTACT,
+    })
+    setContact(_contact.data.allContact)
   }
 
   function handleExperience(payload: ModalExperienceType) {
@@ -110,6 +123,7 @@ export const SanityContextProvider = ({ children }: SanityContextProviderProps) 
         skills,
         projects,
         photographyPhotos,
+        contact,
         modalActive,
         activeExperience,
         activeProject,

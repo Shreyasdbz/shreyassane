@@ -9,6 +9,7 @@ const Hero = () => {
   const profilePicture = useContext(SanityContext).profilePicture
 
   if (profilePicture === null) return <ErrorSection />
+
   return (
     <section style={{ backgroundImage: 'url(/svgBackgrounds/topWave1.svg)' }}>
       <main className="main-hero">
