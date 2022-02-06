@@ -1,4 +1,5 @@
 import { useContext } from 'react'
+import Head from 'next/head'
 
 import { SanityContext } from '../graphql/SanityContext'
 
@@ -18,6 +19,9 @@ export default function Home() {
 
   return (
     <>
+      <Head>
+        <title>Shreyas Sane</title>
+      </Head>
       {/* Modals */}
       {modalActive && activeExperience && !activeProject && (
         <Modal>
