@@ -26,7 +26,7 @@ const Projects = () => {
   }
   projects?.sort(compareCreatedAt)
 
-  if (projects === null) return <ErrorSection />
+  if (projects === null || projects === []) return <ErrorSection />
 
   return (
     <section

@@ -11,8 +11,6 @@ const Contact = () => {
 
   if (contact === null) return <ErrorSection />
 
-  console.log(contact)
-
   return (
     <section
       className="section-contact"
