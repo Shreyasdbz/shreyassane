@@ -40,6 +40,11 @@ const Projects = () => {
         </SectionHeader>
         <div className="flex w-full flex-row flex-wrap items-center justify-center gap-3 lg:justify-start lg:gap-5">
           {projects.map((p) => {
+            let technologies_exists: boolean = false
+            try {
+              if (p.technologies) technologies_exists = true
+            } catch (err) {}
+
             return (
               <div
                 key={p._id}
@@ -50,19 +55,21 @@ const Projects = () => {
               >
                 <p className="text-xl font-semibold">{p.title}</p>
                 <p className="text-lg font-semibold italic text-slate-600 dark:text-slate-400">{p.caption}</p>
-                <div className="flex flex-wrap gap-2">
-                  {p.technologies.map((t) => {
-                    return (
-                      <img
-                        key={t._id}
-                        src={t.icon.asset.url}
-                        alt={t.name}
-                        title={t.name}
-                        className="h-10 w-10 rounded-xl px-2 py-2"
-                      />
-                    )
-                  })}
-                </div>
+                {technologies_exists && (
+                  <div className="flex flex-wrap gap-2">
+                    {p.technologies.map((t) => {
+                      return (
+                        <img
+                          key={t._id}
+                          src={t.icon.asset.url}
+                          alt={t.name}
+                          title={t.name}
+                          className="h-10 w-10 rounded-xl px-2 py-2"
+                        />
+                      )
+                    })}
+                  </div>
+                )}
               </div>
             )
           })}
