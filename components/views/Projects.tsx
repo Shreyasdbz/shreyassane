@@ -48,13 +48,13 @@ const Projects = () => {
             return (
               <div
                 key={p._id}
-                className="hover-bounce flex w-full flex-col items-center justify-center gap-2 rounded-2xl bg-slate-200 px-4 py-2 shadow-xl dark:bg-slate-600 dark:text-slate-100 md:gap-4 md:px-6 lg:w-fit"
+                className="hover-bounce flex w-full flex-col items-center justify-center gap-2 rounded-2xl bg-slate-200 px-4 py-2 shadow-xl dark:bg-slate-600 dark:text-slate-100 md:h-48 md:gap-4 md:px-6 lg:w-fit"
                 onClick={() => {
                   handleProject({ action: 'OPEN', proj: p })
                 }}
               >
                 <p className="text-xl font-semibold">{p.title}</p>
-                <p className="text-lg font-semibold italic text-slate-600 dark:text-slate-400">{p.caption}</p>
+                <p className="max-w-sm text-lg font-semibold italic text-slate-600 dark:text-slate-400">{p.caption}</p>
                 {technologies_exists && (
                   <div className="flex flex-wrap gap-2">
                     {p.technologies.map((t) => {

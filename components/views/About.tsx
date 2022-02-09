@@ -49,7 +49,7 @@ const About = () => {
             return (
               <div
                 key={e._id}
-                className="experience-card hover-bounce flex w-full flex-row items-center justify-start gap-2 rounded-2xl bg-slate-200 px-4 py-2 shadow-xl dark:bg-slate-600 dark:text-slate-100 md:gap-4 md:px-6 lg:w-fit  lg:flex-row "
+                className="experience-card hover-bounce flex w-full flex-row items-center justify-start gap-2 rounded-2xl bg-slate-200 px-4 py-2 shadow-xl dark:bg-slate-600 dark:text-slate-100 md:h-48 md:gap-4 md:px-6 lg:w-fit  lg:flex-row "
                 onClick={() => {
                   handleExperience({ action: 'OPEN', exp: e })
                 }}
