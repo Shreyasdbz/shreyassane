@@ -1,6 +1,6 @@
 /** @format */
 
-import Document, { Html, Head, Main, NextScript } from 'next/document'
+import Document, { Html, Head, Main, NextScript } from 'next/document';
 
 class MyDocument extends Document {
   render() {
@@ -10,15 +10,15 @@ class MyDocument extends Document {
           <link rel="icon" href="favicon.ico" />
           <link rel="manifest" href="/manifest.json" />
           <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-          <meta name="theme-color" content="#6366f1" />
+          <meta name="theme-color" content="#000" />
         </Head>
         <body>
           <Main />
           <NextScript />
         </body>
       </Html>
-    )
+    );
   }
 }
 
-export default MyDocument
+export default MyDocument;

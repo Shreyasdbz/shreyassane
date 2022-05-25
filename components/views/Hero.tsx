@@ -1,63 +1,53 @@
-import { useContext } from 'react'
-import { Link } from 'react-scroll'
-import { HiArrowCircleDown } from 'react-icons/hi'
-import { SanityContext } from '../../graphql/SanityContext'
+import { useContext } from 'react';
+import Image from 'next/image';
 
-import ErrorSection from '../util/ErrorSection'
+import { SanityContext } from '../../graphql/SanityContext';
 
 const Hero = () => {
-  const profilePicture = useContext(SanityContext).profilePicture
+  const profilePicture = useContext(SanityContext).profilePicture;
 
-  if (profilePicture === null) return <ErrorSection />
+  if (profilePicture === null) return null;
 
   return (
-    <section style={{ backgroundImage: 'url(/svgBackgrounds/topWave1.svg)' }}>
-      <main className="main-hero">
-        <div className="picture">
-          <img
+    <main className="grid min-h-screen w-screen grid-rows-2 overflow-hidden lg:grid-cols-2">
+      <div className="flex w-full items-center justify-center lg:min-h-screen">
+        <div className="relative w-32 rounded-full border-l-8 border-r-8 border-primary-300 outline-none lg:w-64">
+          <Image
             src={profilePicture.imageContent.asset.url}
-            alt={profilePicture.imageName}
-            className="h-56 w-56 rounded-full object-cover shadow-xl md:h-72 md:w-72 xl:h-104 xl:w-104"
+            alt="profile picture"
+            layout="responsive"
+            width={300}
+            height={804}
+            objectFit="contain"
+            className="profilePictureImage"
+            priority
           />
         </div>
-        <div className="actions mt-10 flex max-w-lg flex-col gap-2 dark:text-slate-100 md:gap-5">
-          <p className="text-4xl font-semibold">Hi there!</p>
-          <p className="text-6xl font-extrabold">I'm Shreyas</p>
-          <p className="text-2xl font-light leading-loose">
+      </div>
+      <div className="flex h-full w-full flex-col items-center justify-center lg:items-start ">
+        <div className="flex flex-col items-start justify-center">
+          <div className="text-2xl font-light lg:text-6xl">Hi there!</div>
+          <div className="text-4xl font-extrabold lg:text-8xl">I'm Shreyas</div>
+        </div>
+        <div className="flex flex-col items-start justify-center text-lg">
+          <div className="my-2">
             I{' '}
-            <Link
-              to="section-projects"
-              smooth={true}
-              className="action-link-btn whitespace-nowrap border-primary-500 bg-primary-500 shadow-lg shadow-primary-500/25 hover:text-primary-500 hover:shadow-none"
-            >
-              <span className="text-shadow">
-                CODE <span className="emoji">🖥</span>
-              </span>
-            </Link>{' '}
-            applications
-          </p>
-          <p className="text-2xl font-light leading-loose">
-            and{' '}
-            <Link
-              to="section-photography"
-              smooth={true}
-              className="action-link-btn whitespace-nowrap border-secondary-500 bg-secondary-500 shadow-lg shadow-secondary-500/25 hover:text-secondary-500 hover:shadow-none"
-            >
-              <span className="text-shadow">
-                CAPTURE <span className="emoji">📸</span>
-              </span>
-            </Link>{' '}
-            adventures
-          </p>
-          <div className="mt-10 flex w-full items-center justify-center">
-            <Link to="section-about" smooth={true} className="hover-bounce cursor-pointer hover:animate-bounce">
-              <HiArrowCircleDown className="text-4xl text-tertiary-500" />
-            </Link>
+            <button className="cursor-pointer rounded-xl border-2 border-secondary-500 px-2 py-0.5 font-bold outline-none">
+              CODE
+            </button>{' '}
+            Applications
+          </div>
+          <div>
+            &{' '}
+            <button className="cursor-pointer rounded-xl border-2 border-tertiary-500 px-2 py-0.5 font-bold outline-none">
+              CAPTURE
+            </button>{' '}
+            Adventures
           </div>
         </div>
-      </main>
-    </section>
-  )
-}
+      </div>
+    </main>
+  );
+};
 
-export default Hero
+export default Hero;

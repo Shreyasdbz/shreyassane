@@ -1,9 +1,11 @@
-import '../styles/main.css'
-import type { AppProps } from 'next/app'
-import { ApolloProvider } from '@apollo/client'
+import '../styles/main.css';
+import type { AppProps } from 'next/app';
+import { ApolloProvider } from '@apollo/client';
 
-import { SanityContextProvider } from '../graphql/SanityContext'
-import { client } from '../graphql/apollo-client'
+import { SanityContextProvider } from '../graphql/SanityContext';
+import { client } from '../graphql/apollo-client';
+
+import '../styles/main.css';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -12,7 +14,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <Component {...pageProps} />
       </SanityContextProvider>
     </ApolloProvider>
-  )
+  );
 }
 
-export default MyApp
+export default MyApp;
